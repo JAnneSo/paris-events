@@ -1,10 +1,11 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import SearchPage from "./pages/SearchPage";
-import Event from "./pages/Event";
-import Favorites from "./pages/Favorites";
-import NotFound from "./pages/NotFound";
+import Home from "./views/Home";
+import SearchPage from "./views/SearchPage";
+import Event from "./views/Event";
+import Favorites from "./views/Favorites";
+import NotFound from "./views/NotFound";
+import "./styles/paris-events.scss";
 
 function App() {
   return (
