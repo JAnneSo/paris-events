@@ -1,13 +1,13 @@
 import React from "react";
 import Navigation from "../components/Navigation";
 
-const Home = () => {
+const NotFound = () => {
   return (
-    <div className="home">
+    <div>
       <Navigation />
-      <h1>Accueil</h1>
+      <h1>Erreur 404</h1>
     </div>
   );
 };
 
-export default Home;
+export default NotFound;
