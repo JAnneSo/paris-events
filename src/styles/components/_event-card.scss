@@ -1,0 +1,18 @@
+.event-card {
+  width: 100%;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.04), 0px 2px 8px rgba(0, 0, 0, 0.03);
+  border-radius: 10px;
+  overflow: hidden;
+  img {
+    width: 100%;
+  }
+  figcaption {
+    padding: 10px;
+  }
+  &__details--description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+  }
+}

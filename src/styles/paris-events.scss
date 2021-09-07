@@ -1,1 +1,8 @@
-@use 'components' as *;
+//Utilities
+@import "./utilities/reset";
+@import "./utilities/layout";
+//Components
+@import "./components/navigation";
+@import "./components/event-card";
+//Views
+@import "./views/search";

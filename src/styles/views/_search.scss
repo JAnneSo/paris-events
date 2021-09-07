@@ -1,0 +1,11 @@
+input {
+  padding: 10px 20px;
+  border: 1px grey solid;
+  border-radius: 10px;
+}
+.search-card-ctnr {
+  display: grid;
+  grid-template-columns: repeat(3, 31.5%);
+  justify-content: space-between;
+  gap: 2%;
+}

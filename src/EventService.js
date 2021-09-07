@@ -6,9 +6,17 @@ const API_URL =
 
 const EventService = {
   // Get the last 15 events
-  fetchAll() {
+  fetchLastUpdatedEvents() {
     return axios
-      .get(`${API_URL}/?limit=15`)
+      .get(`${API_URL}/?sort=-updated_at&limit=4`)
+      .then((response) => response.data.records)
+      .catch(errorHandler);
+  },
+
+  // Get event with special criterion
+  fetchByCriterion(criterion, criterionValue) {
+    return axios
+      .get(`${API_URL}/?refine=${criterion}:${criterionValue}&limit=4`)
       .then((response) => response.data.records)
       .catch(errorHandler);
   },
@@ -16,8 +24,16 @@ const EventService = {
   // Get search result
   fetchResult(searchInput) {
     return axios
-      .get(`${API_URL}?search=${searchInput}`)
+      .get(`${API_URL}?search=${searchInput}&sort=title`)
       .then((response) => response.data.records)
+      .catch(errorHandler);
+  },
+
+  // Get an event with id
+  fetchEvent(id) {
+    return axios
+      .get(`${API_URL}/${id}`)
+      .then((response) => response.data.record)
       .catch(errorHandler);
   }
 };
