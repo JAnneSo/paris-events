@@ -37,6 +37,7 @@ const Home = () => {
                   title={event.record.fields.title}
                   date={event.record.fields.date_start}
                   cover={event.record.fields.cover.url}
+                  cover_alt={event.record.fields.cover_alt}
                 />
               ))}
             </div>
@@ -53,6 +54,7 @@ const Home = () => {
                   title={event.record.fields.title}
                   date={event.record.fields.date_start}
                   cover={event.record.fields.cover.url}
+                  cover_alt={event.record.fields.cover_alt}
                 />
               ))}
             </div>
@@ -69,6 +71,7 @@ const Home = () => {
                   title={event.record.fields.title}
                   date={event.record.fields.date_start}
                   cover={event.record.fields.cover.url}
+                  cover_alt={event.record.fields.cover_alt}
                 />
               ))}
             </div>

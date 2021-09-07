@@ -22,9 +22,9 @@ const EventService = {
   },
 
   // Get search result
-  fetchResult(searchInput) {
+  fetchResult(searchInput, limit = 25) {
     return axios
-      .get(`${API_URL}?search=${searchInput}&sort=title`)
+      .get(`${API_URL}?search=${searchInput}&sort=title&limit=${limit}`)
       .then((response) => response.data.records)
       .catch(errorHandler);
   },

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const EventCard = (props) => {
-  const { id, title, date, description, cover } = props;
+  const { id, title, date, description, cover, cover_alt } = props;
   return (
     <div>
       <figure className="event-card">
@@ -12,7 +12,7 @@ const EventCard = (props) => {
             search: `${id}`
           }}
         >
-          <img src={cover} alt="img" />
+          <img src={cover} alt={cover_alt} />
         </Link>
 
         <figcaption className="event-card__details">

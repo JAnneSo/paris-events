@@ -45,6 +45,7 @@ const SearchPage = () => {
                   date={event.record.fields.date_start}
                   description={event.record.fields.lead_text}
                   cover={event.record.fields.cover.url}
+                  cover_alt={event.record.fields.cover_alt}
                 />
               ))}
             </div>
