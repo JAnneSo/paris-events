@@ -1,11 +1,84 @@
-input {
-  padding: 10px 20px;
-  border: 1px grey solid;
-  border-radius: 10px;
+.search-main {
+  h1 {
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  h2 {
+    margin-bottom: 24px;
+  }
+  .input-ctnr {
+    @include media-min($mobile-l) {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      margin-bottom: 80px;
+    }
+    @include media-max($mobile-l) {
+      margin-bottom: 40px;
+    }
+
+    input,
+    button {
+      border-radius: 10px;
+      padding: 12px 20px;
+      color: black;
+      font-family: $Monserrat;
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
+    input {
+      @include overflowEllipsis;
+      @include media-max($mobile-l) {
+        width: 100%;
+      }
+    }
+    button {
+      background: white;
+      //font-weight: 500;
+      transition: all 0.3s ease;
+      &:hover {
+        background: rgba(white, 0.2);
+        color: white;
+      }
+      @include media-max($mobile-l) {
+        display: none;
+      }
+    }
+  }
 }
 .search-card-ctnr {
-  display: grid;
-  grid-template-columns: repeat(3, 31.5%);
-  justify-content: space-between;
-  gap: 2%;
+  @include media-min($tablet-m) {
+    display: grid;
+    grid-template-columns: repeat(2, 49%);
+    justify-content: space-between;
+    gap: 25px;
+  }
+  @include media-between($mobile-l, $tablet-m) {
+    display: grid;
+    gap: 12px;
+  }
+  .event-card {
+    @include media-min($mobile-l) {
+      grid-template-columns: 35% 1fr;
+      height: 200px;
+    }
+    img {
+      @include media-between($mobile-l, $tablet-m) {
+        height: 200px;
+      }
+    }
+
+    &__details {
+      @include media-min($mobile-l) {
+        .like-btn {
+          margin-left: 12px;
+        }
+      }
+      &--description {
+        margin-top: 8px;
+        font-size: 1.6rem;
+        font-weight: 300;
+      }
+    }
+  }
 }

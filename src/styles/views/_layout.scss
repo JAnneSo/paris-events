@@ -1,0 +1,53 @@
+body {
+  color: white;
+  font-family: $Monserrat;
+  background: #06232c;
+  padding: 53px 0;
+}
+header {
+  background: #06232c;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.16);
+
+  .nav-ctnr {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include media-min($desktop-xs) {
+      padding: 12px 120px;
+    }
+    @include media-between($mobile-m, $desktop-xs) {
+      padding: 12px 40px;
+    }
+    @include media-max($mobile-m) {
+      padding: 12px 20px;
+    }
+  }
+}
+main:not(.main-event) {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  @include media-min($desktop-xs) {
+    padding: 40px 120px;
+  }
+  @include media-between($mobile-m, $desktop-xs) {
+    padding: 40px 40px;
+  }
+  @include media-max($mobile-m) {
+    padding: 40px 20px;
+  }
+}
+
+.favorite-main {
+  h1 {
+    margin-bottom: 24px;
+  }
+}

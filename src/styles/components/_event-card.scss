@@ -1,18 +1,93 @@
 .event-card {
   width: 100%;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.04), 0px 2px 8px rgba(0, 0, 0, 0.03);
-  border-radius: 10px;
+  border-radius: 15px;
   overflow: hidden;
+  background: #364550;
+  display: grid;
+  @include media-max($mobile-l) {
+    grid-template-columns: 100px 1fr;
+    height: 130px;
+    margin-bottom: 16px;
+  }
+  &:hover {
+    img {
+      transform: scale(1.1);
+      transition: transform 0.4s ease;
+    }
+  }
+  & > a {
+    border-radius: 15px;
+    display: block;
+    overflow: hidden;
+    @include media-max($mobile-l) {
+      height: 130px;
+    }
+  }
   img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1);
+    transition: transform 0.4s ease;
+    @include media-max($mobile-l) {
+      width: 100px;
+    }
   }
-  figcaption {
-    padding: 10px;
-  }
-  &__details--description {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
+  &__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     overflow: hidden;
+    @include media-min($mobile-l) {
+      padding: 20px 20px 20px 24px;
+    }
+
+    @include media-between($mobile-xs, $mobile-l) {
+      padding: 16px;
+    }
+    @include media-max($mobile-xs) {
+      padding: 10px;
+    }
+    &--title {
+      font-weight: 400;
+      @include media-min($mobile-l) {
+        margin-bottom: 12px;
+        font-size: 1.8rem;
+      }
+      @include media-max($mobile-l) {
+        margin-bottom: 6px;
+        font-size: 1.6rem;
+      }
+      @include media-max($mobile-l) {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+      }
+
+      &:hover {
+        text-decoration: underline;
+        transition: all 0.3s ease;
+      }
+    }
+    &--date {
+      display: flex;
+      align-items: center;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: darkgrey;
+      @include media-max($mobile-l) {
+        justify-content: space-between;
+      }
+    }
+
+    &--description {
+      overflow: auto;
+      @include media-max($mobile-l) {
+        display: none;
+      }
+    }
   }
 }

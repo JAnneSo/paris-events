@@ -1,0 +1,25 @@
+.like-btn {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover svg path {
+    stroke: white;
+  }
+  svg {
+    width: 18px;
+    height: 18px;
+    path {
+      stroke-width: 1.5px;
+      stroke: darkgrey;
+      fill: none;
+    }
+  }
+  input[type="checkbox"]:checked ~ svg path {
+    fill: white;
+    stroke: white;
+  }
+}

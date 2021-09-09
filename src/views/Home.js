@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
+import Loader from "../components/Loader";
+import MobileNavigation from "../components/MobileNavigation";
 import Navigation from "../components/Navigation";
 import EventService from "../EventService";
+import formatDate from "../scripts/functions";
 
 const Home = () => {
   const [lastEventData, setLastEventData] = useState(null);
@@ -21,10 +24,13 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home">
+    <div>
       <Navigation />
-      <main>
-        <h1>Accueil</h1>
+      {!lastEventData && !freeEventData && !pmrEventData && <Loader />}
+      <main className="home-main">
+        <section>
+          <h1>Que faire à Paris ?</h1>
+        </section>
 
         {lastEventData && (
           <section className="last-event-section">
@@ -35,7 +41,7 @@ const Home = () => {
                   key={event.record.id}
                   id={event.record.id}
                   title={event.record.fields.title}
-                  date={event.record.fields.date_start}
+                  date={formatDate(event.record.fields.date_start)}
                   cover={event.record.fields.cover.url}
                   cover_alt={event.record.fields.cover_alt}
                 />
@@ -52,7 +58,7 @@ const Home = () => {
                   key={event.record.id}
                   id={event.record.id}
                   title={event.record.fields.title}
-                  date={event.record.fields.date_start}
+                  date={formatDate(event.record.fields.date_start)}
                   cover={event.record.fields.cover.url}
                   cover_alt={event.record.fields.cover_alt}
                 />
@@ -69,7 +75,7 @@ const Home = () => {
                   key={event.record.id}
                   id={event.record.id}
                   title={event.record.fields.title}
-                  date={event.record.fields.date_start}
+                  date={formatDate(event.record.fields.date_start)}
                   cover={event.record.fields.cover.url}
                   cover_alt={event.record.fields.cover_alt}
                 />
@@ -78,6 +84,7 @@ const Home = () => {
           </section>
         )}
       </main>
+      <MobileNavigation />
     </div>
   );
 };

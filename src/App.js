@@ -14,11 +14,12 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/search" exact component={SearchPage} />
-          <Route path="/event" exact component={Event} />
+          <Route path="/event" component={Event} />
           <Route path="/favorites" exact component={Favorites} />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
+      <script src="./scripts/headerScroll.js"></script>
     </div>
   );
 }

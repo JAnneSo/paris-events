@@ -1,38 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import LikeButton from "./LikeButton";
 
 const EventCard = (props) => {
   const { id, title, date, description, cover, cover_alt } = props;
   return (
-    <div>
-      <figure className="event-card">
-        <Link
-          to={{
-            pathname: "/event",
-            search: `${id}`
-          }}
-        >
-          <img src={cover} alt={cover_alt} />
-        </Link>
+    <figure className="event-card">
+      <Link
+        to={{
+          pathname: "/event",
+          search: `${id}`
+        }}
+      >
+        <img src={cover} alt={cover_alt} />
+      </Link>
 
-        <figcaption className="event-card__details">
-          <p className="event-card__details--date">{date}</p>
-          <Link
-            to={{
-              pathname: "/event",
-              search: `${id}`
-            }}
-          >
-            <h3 className="event-card__details--title">{title}</h3>
-          </Link>
-          {description && (
-            <div className="event-card__details--description">
-              {description}
-            </div>
-          )}
-        </figcaption>
-      </figure>
-    </div>
+      <figcaption className="event-card__details">
+        <Link to={{ pathname: "/event", search: `${id}` }}>
+          <h3 className="event-card__details--title">{title}</h3>
+        </Link>
+        <p className="event-card__details--date">
+          {date}
+          <LikeButton id={id} />
+        </p>
+        {description && (
+          <div className="event-card__details--description">{description}</div>
+        )}
+      </figcaption>
+    </figure>
   );
 };
 

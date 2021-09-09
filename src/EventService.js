@@ -8,7 +8,7 @@ const EventService = {
   // Get the last 15 events
   fetchLastUpdatedEvents() {
     return axios
-      .get(`${API_URL}/?sort=-updated_at&limit=4`)
+      .get(`${API_URL}/?sort=updated_at%20desc&limit=4`)
       .then((response) => response.data.records)
       .catch(errorHandler);
   },
@@ -22,7 +22,7 @@ const EventService = {
   },
 
   // Get search result
-  fetchResult(searchInput, limit = 25) {
+  fetchResult(searchInput, limit = 24) {
     return axios
       .get(`${API_URL}?search=${searchInput}&sort=title&limit=${limit}`)
       .then((response) => response.data.records)

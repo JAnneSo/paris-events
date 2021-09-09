@@ -1,8 +1,15 @@
 //Utilities
 @import "./utilities/reset";
-@import "./utilities/layout";
+@import "./utilities/mixins";
+@import "./utilities/fonts";
+
 //Components
 @import "./components/navigation";
 @import "./components/event-card";
+@import "./components/like-button";
+@import "./components/loader";
 //Views
+@import "./views/layout";
+@import "./views/home";
 @import "./views/search";
+@import "./views/event";
