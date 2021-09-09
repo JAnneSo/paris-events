@@ -1,6 +1,10 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faHeart, faSearch } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHome,
+  faSearch,
+  faBookmark
+} from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 
 const MobileNavigation = () => {
@@ -20,7 +24,7 @@ const MobileNavigation = () => {
       </NavLink>
       <NavLink exact to="/favorites" activeClassName="nav-active">
         <div>
-          <FontAwesomeIcon icon={faHeart} />
+          <FontAwesomeIcon icon={faBookmark} />
           <p>Favoris</p>
         </div>
       </NavLink>

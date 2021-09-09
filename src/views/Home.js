@@ -28,8 +28,17 @@ const Home = () => {
       <Navigation />
       {!lastEventData && !freeEventData && !pmrEventData && <Loader />}
       <main className="home-main">
-        <section>
-          <h1>Que faire à Paris ?</h1>
+        <section className="banner">
+          <div className="banner-text">
+            <h1>Que faire à Paris ?</h1>
+            <p>
+              L'application qui permet de rechercher en direct les prochains
+              évènements Parisiens.
+            </p>
+          </div>
+          <div className="banner__img-ctnr">
+            <img src="/assets/eiffel-tour.jpg" alt="paris" />
+          </div>
         </section>
 
         {lastEventData && (

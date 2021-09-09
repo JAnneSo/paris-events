@@ -2,7 +2,7 @@
   cursor: pointer;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
-  padding: 8px;
+  padding: 8px 9px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,10 +10,8 @@
     stroke: white;
   }
   svg {
-    width: 18px;
-    height: 18px;
     path {
-      stroke-width: 1.5px;
+      stroke-width: 5rem;
       stroke: darkgrey;
       fill: none;
     }
