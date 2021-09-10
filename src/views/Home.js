@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import EventCard from "../components/EventCard";
 import Loader from "../components/Loader";
 import MobileNavigation from "../components/MobileNavigation";
@@ -35,6 +36,9 @@ const Home = () => {
               L'application qui permet de rechercher en direct les prochains
               évènements Parisiens.
             </p>
+            <Link to="/search" className="cta">
+              Rechercher un évènement
+            </Link>
           </div>
           <div className="banner__img-ctnr">
             <img src="/assets/eiffel-tour.jpg" alt="paris" />

@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
+import { headerScroll } from "../scripts/functions";
 
 const Navigation = () => {
+  useEffect(() => {
+    headerScroll();
+  }, []);
   return (
     <header id="header">
       <div className="nav-ctnr">
         <Link exact to="/" className="logo">
-          Paris Events
+          Paris'Events
         </Link>
         <nav className="navigation">
           <NavLink exact to="/" activeClassName="nav-active">

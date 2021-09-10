@@ -4,12 +4,13 @@
   align-items: center;
   a {
     padding: 5px 12px;
+    font-weight: 500;
   }
   @include media-max($mobile-l) {
     display: none;
   }
-  .logo {
-    font-weight: 600;
+  .nav-active {
+    color: #e525ff;
   }
 }
 

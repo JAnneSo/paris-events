@@ -5,19 +5,22 @@ $Monserrat: "Montserrat", sans-serif;
   font-size: 10px;
 }
 h1 {
-  font-size: 38px;
   font-weight: 400;
+  @include media-min($tablet-m) {
+    font-size: 38px;
+  }
   @include media-max($tablet-m) {
     font-size: 32px;
   }
 }
 h2 {
+  font-weight: 400;
   @include media-min($tablet-m) {
     margin-bottom: 40px;
+    font-size: 28px;
   }
   @include media-max($tablet-m) {
     margin-bottom: 24px;
+    font-size: 24px;
   }
-  font-size: 28px;
-  font-weight: 400;
 }
