@@ -36,7 +36,7 @@ const Home = () => {
               L'application qui permet de rechercher en direct les prochains
               évènements Parisiens.
             </p>
-            <Link to="/search" className="cta">
+            <Link to="/search" className="colored-btn">
               Rechercher un évènement
             </Link>
           </div>

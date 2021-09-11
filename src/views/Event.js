@@ -5,7 +5,7 @@ import Parser from "html-react-parser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalendarAlt,
-  faMapMarkedAlt,
+  faMapMarkerAlt,
   faLowVision,
   faBlind,
   faWheelchair,
@@ -17,6 +17,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import Loader from "../components/Loader";
 import MobileNavigation from "../components/MobileNavigation";
+import LikeButton from "../components/LikeButton";
+import formatDate from "../scripts/functions";
 
 library.add(fab);
 
@@ -65,44 +67,77 @@ const Event = (props) => {
                 />
               </div>
               <div className="introduction-info-ctnr">
-                {eventDetails.tags && eventDetails.tags.length !== 0 && (
-                  <div>
-                    {eventDetails.tags.map((tag) => (
-                      <p key={tag} className="tag">
-                        {tag}
-                      </p>
-                    ))}
-                  </div>
-                )}
                 <h1>{eventDetails.title}</h1>
-                <p>
+
+                <p className="date">
                   <FontAwesomeIcon icon={faCalendarAlt} />
-                  {eventDetails.date_start}
+                  {formatDate(eventDetails.date_start)}
                 </p>
-                <p>
-                  <FontAwesomeIcon icon={faMapMarkedAlt} />
+                <p className="address">
+                  <FontAwesomeIcon icon={faMapMarkerAlt} />
                   {eventDetails.address_name}
                 </p>
-                <a href={eventDetails.access_link}>Visiter</a>
+                <div className="cta-ctnr">
+                  <a
+                    href={eventDetails.access_link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="colored-btn"
+                  >
+                    Visiter le site web
+                  </a>
+                  <LikeButton id={id} />
+                </div>
               </div>
             </section>
           </div>
-          <div>
+          <div className="content">
             <section className="description">
+              {eventDetails.tags && eventDetails.tags.length !== 0 && (
+                <div className="tags-ctnr">
+                  {eventDetails.tags.map((tag) => (
+                    <p key={tag} className="tag">
+                      {tag}
+                    </p>
+                  ))}
+                </div>
+              )}
               {Parser(eventDetails.description)}
+              <div className="access-section">
+                <h2>Accès</h2>
+                <p className="address">
+                  <FontAwesomeIcon icon={faMapMarkerAlt} />
+                  {eventDetails.address_name &&
+                    eventDetails.address_name + ", "}
+                  {eventDetails.address_street &&
+                    eventDetails.address_street + " "}
+                  {eventDetails.address_zipcode &&
+                    eventDetails.address_zipcode + " "}
+                  {eventDetails.address_city && eventDetails.address_city}
+                </p>
+                {eventDetails.transport && (
+                  <div>
+                    <h3>Transport</h3>
+                    {eventDetails.transport.split("\n").map((t) => (
+                      <p key={t}>{t}</p>
+                    ))}
+                  </div>
+                )}
+                <iframe title="maps" src={mapsUrl} allowFullScreen></iframe>
+              </div>
             </section>
-            <section>
-              <div>
+            <section className="main-info-section">
+              <div className="card">
                 <h2>Dates</h2>
-                {Parser(eventDetails.date_description)}
+                <p>{Parser(eventDetails.date_description)}</p>
               </div>
               {eventDetails.price_detail && (
-                <div>
+                <div className="card">
                   <h2>Prix</h2>
                   <p>{eventDetails.price_detail}</p>
                 </div>
               )}
-              <div>
+              <div className="card accessibilite">
                 <h2>Accessibilité</h2>
                 <p>
                   <FontAwesomeIcon icon={faWheelchair} />
@@ -124,58 +159,64 @@ const Event = (props) => {
                   aux mal entendants
                 </p>
               </div>
-            </section>
-            <section>
-              <h2>Accès</h2>
-              <p>
-                {eventDetails.address_name && eventDetails.address_name + ", "}
-                {eventDetails.address_street &&
-                  eventDetails.address_street + " "}
-                {eventDetails.address_zipcode &&
-                  eventDetails.address_zipcode + " "}
-                {eventDetails.address_city && eventDetails.address_city}
-              </p>
-              <iframe title="maps" src={mapsUrl} allowFullScreen></iframe>
-
-              {eventDetails.transport && (
-                <div>
-                  {eventDetails.transport.split("\n").map((t) => (
-                    <p key={t}>{t}</p>
-                  ))}
+              {(eventDetails.contact_facebook ||
+                eventDetails.contact_mail ||
+                eventDetails.contact_phone ||
+                eventDetails.contact_twitter ||
+                eventDetails.contact_url) && (
+                <div className=" card contact-section">
+                  <h2>Contact</h2>
+                  {eventDetails.contact_facebook && (
+                    <a
+                      href={eventDetails.contact_facebook}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <FontAwesomeIcon icon={["fab", "facebook"]} />
+                      {eventDetails.contact_facebook}
+                    </a>
+                  )}
+                  {eventDetails.contact_mail && (
+                    <a
+                      href={"mailto:" + eventDetails.contact_mail}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <FontAwesomeIcon icon={faEnvelope} />
+                      {eventDetails.contact_mail}
+                    </a>
+                  )}
+                  {eventDetails.contact_phone && (
+                    <a
+                      href={"tel:" + eventDetails.contact_phone}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <FontAwesomeIcon icon={faPhoneAlt} />
+                      {eventDetails.contact_phone}
+                    </a>
+                  )}
+                  {eventDetails.contact_twitter && (
+                    <a
+                      href={eventDetails.contact_twitter}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <FontAwesomeIcon icon={["fab", "twitter"]} />
+                      {eventDetails.contact_twitter}
+                    </a>
+                  )}
+                  {eventDetails.contact_url && (
+                    <a
+                      href={eventDetails.contact_url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <FontAwesomeIcon icon={faGlobeEurope} />
+                      {eventDetails.contact_url}
+                    </a>
+                  )}
                 </div>
-              )}
-            </section>
-            <section>
-              <h2>Contact</h2>
-              {eventDetails.contact_facebook && (
-                <a href={eventDetails.contact_facebook}>
-                  <FontAwesomeIcon icon={["fab", "facebook"]} />
-                  {eventDetails.contact_facebook}
-                </a>
-              )}
-              {eventDetails.contact_mail && (
-                <a href={"mailto:" + eventDetails.contact_mail}>
-                  <FontAwesomeIcon icon={faEnvelope} />
-                  {eventDetails.contact_mail}
-                </a>
-              )}
-              {eventDetails.contact_phone && (
-                <a href={"tel:" + eventDetails.contact_phone}>
-                  <FontAwesomeIcon icon={faPhoneAlt} />
-                  {eventDetails.contact_phone}
-                </a>
-              )}
-              {eventDetails.contact_twitter && (
-                <a href={eventDetails.contact_twitter}>
-                  <FontAwesomeIcon icon={["fab", "twitter"]} />
-                  {eventDetails.contact_twitter}
-                </a>
-              )}
-              {eventDetails.contact_url && (
-                <a href={eventDetails.contact_url}>
-                  <FontAwesomeIcon icon={faGlobeEurope} />
-                  {eventDetails.contact_url}
-                </a>
               )}
             </section>
           </div>

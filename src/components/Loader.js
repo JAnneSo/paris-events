@@ -13,7 +13,7 @@ const Loader = () => {
   };
   return (
     <div className="loader">
-      <Lottie options={defaultOptions} height={200} width={200} />
+      <Lottie options={defaultOptions} height={100} width={100} />
     </div>
   );
 };

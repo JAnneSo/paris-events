@@ -6,6 +6,7 @@ const Navigation = () => {
   useEffect(() => {
     headerScroll();
   }, []);
+
   return (
     <header id="header">
       <div className="nav-ctnr">

@@ -12,6 +12,9 @@ const SearchPage = () => {
   const inputRef = useRef();
 
   useEffect(() => {
+    document.getElementById("searchInput").focus();
+  }, []);
+  useEffect(() => {
     if (inputValue) {
       EventService.fetchResult(inputValue).then((response) => {
         if (response.length === 0) {
@@ -40,6 +43,7 @@ const SearchPage = () => {
         <h1>Rechercher un évènement</h1>
         <div className="input-ctnr">
           <input
+            id="searchInput"
             type="text"
             ref={inputRef}
             placeholder="One man show, danse, théâtre, concert..."

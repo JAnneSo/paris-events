@@ -19,7 +19,6 @@ function App() {
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
-      <script src="./scripts/headerScroll.js"></script>
     </div>
   );
 }
