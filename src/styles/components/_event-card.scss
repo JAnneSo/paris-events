@@ -41,9 +41,7 @@
     }
   }
   &__details {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include flexDirJust(column, center);
     overflow: hidden;
     @include media-min($mobile-l) {
       padding: 20px 20px 20px 24px;
@@ -78,9 +76,7 @@
       }
     }
     &--date {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      @include flexJustAlign(space-between, center);
       font-size: 1.2rem;
       font-weight: 500;
       color: darkgrey;

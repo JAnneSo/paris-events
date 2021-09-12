@@ -1,8 +1,6 @@
 .not-found-main {
   height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexJustAlign(center, center);
   h1 {
     color: white;
     font-size: 5rem;

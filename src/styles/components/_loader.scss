@@ -5,7 +5,5 @@
   height: 100vh;
   background: #06232c;
   z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexJustAlign(center, center);
 }
