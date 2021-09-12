@@ -30,7 +30,7 @@ const Home = () => {
       {!lastEventData && !freeEventData && !pmrEventData && <Loader />}
       <main className="home-main">
         <section className="banner">
-          <div className="banner-text">
+          <div className="banner-text" data-aos="fade-right">
             <h1>Que faire à Paris ?</h1>
             <p>
               L'application qui permet de rechercher en direct les prochains
@@ -40,13 +40,17 @@ const Home = () => {
               Rechercher un évènement
             </Link>
           </div>
-          <div className="banner__img-ctnr">
+          <div className="banner__img-ctnr" data-aos="fade-left">
             <img src="/assets/eiffel-tour.jpg" alt="paris" />
           </div>
         </section>
 
         {lastEventData && (
-          <section className="last-event-section">
+          <section
+            className="last-event-section"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
             <h2>Derniers évènements</h2>
             <div className="event-grid">
               {lastEventData.map((event) => (
@@ -63,7 +67,7 @@ const Home = () => {
           </section>
         )}
         {freeEventData && (
-          <section className="free-event-section">
+          <section className="free-event-section" data-aos="fade-up">
             <h2>Évènements gratuits</h2>
             <div className="event-grid">
               {freeEventData.map((event) => (
@@ -80,7 +84,7 @@ const Home = () => {
           </section>
         )}
         {pmrEventData && (
-          <section className="pmr-event-section">
+          <section className="pmr-event-section" data-aos="fade-up">
             <h2>Évènements accessibles aux PMR</h2>
             <div className="event-grid">
               {pmrEventData.map((event) => (

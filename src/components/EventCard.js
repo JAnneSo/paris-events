@@ -5,7 +5,7 @@ import LikeButton from "./LikeButton";
 const EventCard = (props) => {
   const { id, title, date, description, cover, cover_alt } = props;
   return (
-    <figure className="event-card">
+    <figure className="event-card" data-aos="fade-up">
       <Link
         to={{
           pathname: "/event",

@@ -51,7 +51,7 @@ const SearchPage = () => {
           />
           <button onClick={searchInput}>Rechercher</button>
         </div>
-        {noResultMessage && <h2>{noResultMessage}</h2>}
+        {noResultMessage && <h2 data-aos="fade-up">{noResultMessage}</h2>}
         {eventData && eventData.length !== 0 && (
           <div>
             <h2>Résultats de la recherche</h2>

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import StorageService from "../StorageService";
 
 const LikeButton = (props) => {
   const localStorageName = "paris_event_asj";
@@ -14,12 +15,8 @@ const LikeButton = (props) => {
    */
   function storeFavorite() {
     let checkboxId = checkboxRef.current.id;
-    // Get data in localStorage and convert from JSON
-    const storedList = localStorage.getItem(localStorageName);
-    let storageArray = [];
-    if (storedList) {
-      storageArray = JSON.parse(storedList);
-    }
+    // Get data in localStorage
+    const storageArray = StorageService.getLocalStorage();
     // Boolean : checkboxId is in localStotage
     const isFavorite = storageArray.includes(checkboxId);
 
@@ -35,7 +32,6 @@ const LikeButton = (props) => {
         localStorage.setItem(localStorageName, JSON.stringify(storageArray));
       }
     }
-    //console.log(storedList);
   }
 
   /**

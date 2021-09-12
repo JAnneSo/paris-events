@@ -197,9 +197,9 @@
         margin-bottom: 15px;
       }
       img {
-        max-width: 50%;
-        margin: 0 50px 50px 0;
-        float: left;
+        max-width: 100%;
+        margin: 50px auto;
+        max-height: 400px;
       }
       // ACCESS SECTION
       .access-section {
@@ -242,7 +242,6 @@
         align-items: baseline;
         gap: 10px;
       }
-
       .card {
         width: 100%;
         &:not(:last-of-type) {

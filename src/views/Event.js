@@ -26,12 +26,20 @@ const Event = (props) => {
   const id = props.location.search.replace(/\?/g, "");
   const [eventDetails, setEventDetails] = useState(null);
   const [mapsUrl, setMapsUrl] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(false);
 
   useEffect(() => {
     if (id) {
       EventService.fetchEvent(id).then((response) => {
-        setEventDetails(response.fields);
-        setMapsUrl(createMapsUrl(response.fields));
+        if (response.message) {
+          if (response.message.includes("Request failed")) {
+            setErrorMsg(true);
+          }
+        } else {
+          setEventDetails(response.fields);
+          setMapsUrl(createMapsUrl(response.fields));
+          setErrorMsg(false);
+        }
       });
     }
   }, [id]);
@@ -55,18 +63,18 @@ const Event = (props) => {
   return (
     <div>
       <Navigation />
-      {!eventDetails && <Loader />}
+      {!eventDetails && !errorMsg && <Loader />}
       {eventDetails && (
         <main className="main-event">
           <div className="bg-introduction">
             <section className="introduction">
-              <div className="cover">
+              <div className="cover" data-aos="fade-up">
                 <img
                   src={eventDetails.cover.url}
                   alt={eventDetails.cover_alt}
                 />
               </div>
-              <div className="introduction-info-ctnr">
+              <div className="introduction-info-ctnr" data-aos="fade-up">
                 <h1>{eventDetails.title}</h1>
 
                 <p className="date">
@@ -91,7 +99,7 @@ const Event = (props) => {
               </div>
             </section>
           </div>
-          <div className="content">
+          <div className="content" data-aos="fade-up">
             <section className="description">
               {eventDetails.tags && eventDetails.tags.length !== 0 && (
                 <div className="tags-ctnr">
@@ -220,6 +228,11 @@ const Event = (props) => {
               )}
             </section>
           </div>
+        </main>
+      )}
+      {errorMsg && (
+        <main>
+          <h1>Oups, cet évènement n'est plus disponible</h1>
         </main>
       )}
       <MobileNavigation />

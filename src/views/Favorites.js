@@ -5,17 +5,12 @@ import MobileNavigation from "../components/MobileNavigation";
 import Navigation from "../components/Navigation";
 import EventService from "../EventService";
 import formatDate from "../scripts/functions";
+import StorageService from "../StorageService";
 
 const Favorites = () => {
-  const localStorageName = "paris_event_asj";
   const [eventsTab, setEventsTab] = useState(null);
   // Get events stored in localStorage
-  const storedList = localStorage.getItem(localStorageName);
-  let storageArray = [];
-  if (storedList) {
-    storageArray = JSON.parse(storedList);
-    console.log("storageArray", storageArray);
-  }
+  let storageArray = StorageService.getLocalStorage();
 
   function fetchProfileData() {
     return Promise.all(
@@ -28,7 +23,7 @@ const Favorites = () => {
   }
 
   useEffect(() => {
-    if (storedList) {
+    if (storageArray) {
       const promise = fetchProfileData();
       promise.then((data) => {
         setEventsTab(data);
