@@ -45,9 +45,9 @@ const Event = (props) => {
   }, [id]);
 
   function createMapsUrl(dataset) {
-    let url = `https://www.google.com/maps/embed/v1/place?key=
-      ${process.env.REACT_APP_API_KEY}
-    &q=${dataset.address_name && dataset.address_name.replace(/ /g, "+") + ","}
+    let url = `https://www.google.com/maps/embed/v1/place?key=AIzaSyCNRhySENGiqlfdPxPP4A5JZyIvq4cxCGc&q=${
+      dataset.address_name && dataset.address_name.replace(/ /g, "+") + ","
+    }
     ${dataset.address_street && dataset.address_street.replace(/ /g, "+") + ","}
     ${
       dataset.address_zipcode &&
