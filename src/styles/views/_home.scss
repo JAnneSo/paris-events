@@ -70,15 +70,16 @@
 
     &-text {
       position: absolute;
-      background: rgba(255, 255, 255, 0.1);
+
       overflow: hidden;
       z-index: 1;
       @include media-min($tablet-m) {
         top: 30%;
         left: 10%;
         max-width: 600px;
-        padding: 60px 80px;
+        padding: 50px 60px;
         border-radius: 15px;
+        background: rgba(255, 255, 255, 0.1);
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
       }
@@ -87,6 +88,7 @@
         left: 0;
         height: 100%;
         padding: 20px 12vw;
+        background: rgba(0, 0, 20, 0.2);
         @include flexDirJustAlign(column, center, center);
         -webkit-backdrop-filter: blur(5px);
         backdrop-filter: blur(5px);
@@ -94,6 +96,7 @@
       h1 {
         font-weight: 500;
         margin-bottom: 24px;
+        filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.3));
         @include media-max($tablet-m) {
           text-align: center;
         }
@@ -110,7 +113,7 @@
         }
       }
       .colored-btn {
-        margin-top: 14px;
+        margin-top: 25px;
       }
     }
     &__img-ctnr {
@@ -251,7 +254,47 @@
     @include media-between($mobile-l, $tablet-m) {
       grid-template-columns: 100%;
       grid-template-rows: repeat(4, 25vw);
-      gap: 12px;
+      gap: 15px;
     }
   }
+}
+
+// TODO
+[data-aos="home-fade-right-animation"] {
+  transition-property: transform, opacity;
+  @include media-min($tablet-m) {
+    opacity: 0;
+    transform: translateX(-100px);
+    &.aos-animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @include media-max($tablet-m) {
+    opacity: 0;
+    transition-duration: 1s;
+    &.aos-animate {
+      opacity: 1;
+    }
+  }
+}
+
+[data-aos="home-fade-left-animation"] {
+  transition-property: transform, opacity;
+  @include media-min($tablet-s) {
+    opacity: 0;
+    transform: translateX(100px);
+    &.aos-animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  // @include media-max($tablet-s) {
+  //   opacity: 0;
+  //   &.aos-animate {
+  //     opacity: 1;
+  //   }
+  // }
 }

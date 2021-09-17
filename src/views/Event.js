@@ -86,14 +86,16 @@ const Event = (props) => {
                   {eventDetails.address_name}
                 </p>
                 <div className="cta-ctnr">
+                  {eventDetails.contact_url &&
                   <a
-                    href={eventDetails.access_link}
+                    href={eventDetails.contact_url}
                     target="_blank"
                     rel="noreferrer"
                     className="colored-btn"
                   >
                     Visiter le site web
                   </a>
+                  }
                   <LikeButton id={id} />
                 </div>
               </div>

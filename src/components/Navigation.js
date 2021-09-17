@@ -10,8 +10,8 @@ const Navigation = () => {
   return (
     <header id="header">
       <div className="nav-ctnr">
-        <Link exact to="/" className="logo">
-          Paris'Events
+        <Link exact to="/">
+          <img src="/LOGO.svg" alt="paris events" className="logo" />
         </Link>
         <nav className="navigation">
           <NavLink exact to="/" activeClassName="nav-active">

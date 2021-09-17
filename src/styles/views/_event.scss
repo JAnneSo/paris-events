@@ -8,7 +8,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: white;
+    background: #f5f7f7;
     z-index: -2;
   }
   section:not(.introduction) {
@@ -46,13 +46,13 @@
       @include media-min($mobile-l) {
         bottom: 0;
         top: -36px;
-        left: 0;
-        right: 0;
+        top: -36px;
+        left: -30%;
         width: 100%;
         filter: brightness(84%);
         border-radius: 0 0 100% 100%/0 0 20% 32%;
         overflow: hidden;
-        width: 100vw;
+        width: 150vw;
       }
     }
     &::after {
@@ -129,6 +129,8 @@
       }
       .colored-btn {
         margin-right: 16px;
+        transform: scale(1);
+        transition: all 0.3s ease;
         &:hover {
           transform: scale(1.1);
           transition: all 0.3s ease;
@@ -139,8 +141,8 @@
         margin-bottom: 5px;
       }
       .like-btn {
-        width: 40px;
-        height: 40px;
+        width: 46px;
+        height: 46px;
         padding: 13px 15px;
       }
     }

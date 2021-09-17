@@ -30,7 +30,7 @@ const Home = () => {
       {!lastEventData && !freeEventData && !pmrEventData && <Loader />}
       <main className="home-main">
         <section className="banner">
-          <div className="banner-text" data-aos="fade-right">
+          <div className="banner-text" data-aos="home-fade-right-animation">
             <h1>Que faire à Paris ?</h1>
             <p>
               L'application qui permet de rechercher en direct les prochains
@@ -40,7 +40,7 @@ const Home = () => {
               Rechercher un évènement
             </Link>
           </div>
-          <div className="banner__img-ctnr" data-aos="fade-left">
+          <div className="banner__img-ctnr" data-aos="home-fade-left-animation">
             <img src="/assets/eiffel-tour.jpg" alt="paris" />
           </div>
         </section>

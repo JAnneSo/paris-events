@@ -44,7 +44,8 @@ const SearchPage = () => {
         <div className="input-ctnr">
           <input
             id="searchInput"
-            type="text"
+            type="search"
+            inputMode="search"
             ref={inputRef}
             placeholder="One man show, danse, théâtre, concert..."
             onKeyDown={onKeyDown}
