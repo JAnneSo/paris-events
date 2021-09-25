@@ -26,7 +26,7 @@ const Favorites = () => {
     if (storageArray) {
       const promise = fetchProfileData();
       promise.then((data) => {
-        setEventsTab(data);
+        setEventsTab(data.filter((event) => event.id));
       });
     } else {
       setEventsTab([]);
